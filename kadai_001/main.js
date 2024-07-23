@@ -2,6 +2,8 @@
 let untyped = '';
 let typed = '';
 let score = 0;
+// 総タイプ数を保持する変数
+let totalTypedCount = 0;
 
 // 必要なHTML要素の取得
 const untypedfield = document.getElementById('untyped');
@@ -67,8 +69,10 @@ const keyPress = e => {
   untyped = untyped.substring(1);
   typedfield.textContent = typed;
   untypedfield.textContent = untyped;
+  // 総タイプ数をインクリメント
+  totalTypedCount++;
   // タイプ数を更新
-  typedCount.textContent = typed.length;
+  typedCount.textContent = totalTypedCount;
 
 // テキストがなくなったら新しくテキストを表示
   if(untyped === '') {
